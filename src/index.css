@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-border: var(--border-color);
+  --color-border-hover: var(--border-hover-color);
+  --color-text-main: var(--text-main-color);
+  --color-text-muted: var(--text-muted-color);
+
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --surface-color: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(229, 231, 235, 0.5);
+  --border-hover-color: #cbd5e1;
+  --text-main-color: #0f172a;
+  --text-muted-color: #64748b;
+  --btn-color: #0284c7;
+  --btn-hover-color: #ffffff;
+}
+
+.dark {
+  --bg-color: #000000;
+  --surface-color: rgba(10, 10, 10, 0.7);
+  --border-color: rgba(34, 34, 34, 0.5);
+  --border-hover-color: #444444;
+  --text-main-color: #ffffff;
+  --text-muted-color: #888888;
+  --btn-color: greenyellow;
+  --btn-hover-color: #212121;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-main-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Clean link hover */
+.link-hover {
+  transition: color 0.2s ease;
+}
+.link-hover:hover {
+  color: var(--color-text-main);
+}
+
+/* Sharp Grid Hover Effect */
+.grid-cell {
+  position: relative;
+}
+
+.grid-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.grid-cell.active-cell::after,
+.grid-cell:hover::after {
+  border-color: var(--btn-color);
+}
+
+/* Animated Button Styles */
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 28px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 14px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: var(--btn-color);
+  box-shadow: 0 0 0 2px var(--btn-color);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 20px;
+  fill: var(--btn-color);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 12px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--btn-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: var(--btn-hover-color);
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 12px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(10px);
+}
+
+.animated-button:hover svg {
+  fill: var(--btn-hover-color);
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px var(--btn-color);
+}
+
+.border-beam-container {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+  overflow: hidden;
+}
+
+.border-beam {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--btn-color), transparent);
+  animation: beam-sweep 4s infinite linear;
+}
+
+@keyframes beam-sweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
