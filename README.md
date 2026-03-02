@@ -2,15 +2,6 @@
 
 AI native services for manufacturing companies.
 
-## 🚀 Tech Stack
-
-- **Framework:** [React 19](https://react.dev/)
-- **Build Tool:** [Vite](https://vitejs.dev/)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) & [styled-components](https://styled-components.com/)
-- **Animations:** [GSAP](https://gsap.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Linting:** [ESLint](https://eslint.org/)
-
 ## 📦 Getting Started
 
 ### Prerequisites
@@ -63,13 +54,6 @@ The application will be available at `http://localhost:5173`.
 ├── vite.config.js      # Vite configuration
 └── eslint.config.js    # ESLint configuration
 ```
-
-## 🎨 Features
-
-- **Lightning Fast HMR:** Powered by Vite for an optimal developer experience.
-- **Modern UI Components:** Built with Tailwind CSS and styled-components.
-- **Smooth Animations:** Integrated with GSAP for complex, high-performance animations.
-- **Production Ready:** Optimized build process for minimal bundle sizes.
 
 ## 📄 License
 
