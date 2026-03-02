@@ -1,16 +1,76 @@
-# React + Vite
+# FastForge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI native services for manufacturing companies.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework:** [React 19](https://react.dev/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) & [styled-components](https://styled-components.com/)
+- **Animations:** [GSAP](https://gsap.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Linting:** [ESLint](https://eslint.org/)
 
-## React Compiler
+## 📦 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+Ensure you have [Node.js](https://nodejs.org/) (v18+ recommended) installed on your machine.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd website-new
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Development Server
+
+Start the Vite development server with Hot Module Replacement (HMR):
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+## 📜 Available Scripts
+
+- `npm run dev` - Starts the development server.
+- `npm run build` - Builds the app for production to the `dist` folder.
+- `npm run preview` - Boots up a local web server to preview the production build.
+- `npm run lint` - Runs ESLint to check for code quality and formatting issues.
+
+## 🏗️ Project Structure
+
+```text
+├── public/             # Static assets that are not processed by Webpack/Vite
+├── src/                # Application source code
+│   ├── assets/         # Images, fonts, and other media
+│   ├── App.jsx         # Main application component
+│   ├── main.jsx        # Application entry point
+│   ├── index.css       # Global styles and Tailwind directives
+│   └── ...             # Other React components (e.g., AnimatedButton, Switch)
+├── index.html          # HTML entry point
+├── package.json        # Project metadata and dependencies
+├── vite.config.js      # Vite configuration
+└── eslint.config.js    # ESLint configuration
+```
+
+## 🎨 Features
+
+- **Lightning Fast HMR:** Powered by Vite for an optimal developer experience.
+- **Modern UI Components:** Built with Tailwind CSS and styled-components.
+- **Smooth Animations:** Integrated with GSAP for complex, high-performance animations.
+- **Production Ready:** Optimized build process for minimal bundle sizes.
+
+## 📄 License
+
+This project is private and proprietary.
