@@ -291,8 +291,8 @@ const Hero = () => {
   );
 };
 
-const ComponentEngineeringSvg = () => (
-  <svg viewBox="20 15 360 270" className="w-full h-full transition-transform duration-700" xmlns="http://www.w3.org/2000/svg">
+const ComponentEngineeringSvg = ({ className }) => (
+  <svg viewBox="20 15 360 270" className={className || "w-full h-auto transition-transform duration-700"} xmlns="http://www.w3.org/2000/svg">
     <style>
       {`
         @keyframes pulse {
@@ -334,8 +334,8 @@ const ComponentEngineeringSvg = () => (
   </svg>
 );
 
-const ConfigAdminSvg = () => (
-  <svg viewBox="0 0 400 300" className="w-full h-full group-hover:scale-105 transition-transform duration-700" xmlns="http://www.w3.org/2000/svg">
+const ConfigAdminSvg = ({ className }) => (
+  <svg viewBox="0 0 400 300" className={className || "w-full h-auto group-hover:scale-105 transition-transform duration-700"} xmlns="http://www.w3.org/2000/svg">
     <style>
       {`
         @keyframes float-disk-1 {
@@ -389,8 +389,8 @@ const ConfigAdminSvg = () => (
   </svg>
 );
 
-const IntegrationsSvg = () => (
-  <svg viewBox="0 0 400 300" className="w-full h-full group-hover:scale-105 transition-transform duration-700" xmlns="http://www.w3.org/2000/svg">
+const IntegrationsSvg = ({ className }) => (
+  <svg viewBox="0 0 400 300" className={className || "w-full h-auto group-hover:scale-105 transition-transform duration-700"} xmlns="http://www.w3.org/2000/svg">
     <style>
       {`
         @keyframes dash {
@@ -422,8 +422,8 @@ const IntegrationsSvg = () => (
   </svg>
 );
 
-const ImplementationSvg = () => (
-  <svg viewBox="0 0 400 300" className="w-full h-full group-hover:scale-105 transition-transform duration-700" xmlns="http://www.w3.org/2000/svg">
+const ImplementationSvg = ({ className }) => (
+  <svg viewBox="0 0 400 300" className={className || "w-full h-auto group-hover:scale-105 transition-transform duration-700"} xmlns="http://www.w3.org/2000/svg">
     <style>
       {`
         @keyframes slideUp {
@@ -556,8 +556,8 @@ const Offerings = () => {
   }, []);
 
   return (
-    <section id="offerings" className="w-full h-screen flex flex-col justify-center py-24 px-6 md:px-12 max-w-7xl mx-auto relative bg-transparent" ref={containerRef}>
-      <div className="text-center mb-12 flex-shrink-0 mt-6 md:mt-8 relative z-10">
+    <section id="offerings" className="w-full h-screen flex flex-col justify-center pt-24 pb-12 px-6 md:px-12 max-w-7xl mx-auto relative bg-transparent" ref={containerRef}>
+      <div className="text-center mb-6 md:mb-10 flex-shrink-0 relative z-10">
         <style>
           {`
             @keyframes gradientPan {
@@ -575,7 +575,7 @@ const Offerings = () => {
             }
           `}
         </style>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-6 inline-block text-gradient-animated">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-10 pb-2 inline-block text-gradient-animated">
           Our offerings
         </h2>
         <p className="text-text-muted text-lg max-w-2xl mx-auto relative z-10">
@@ -583,37 +583,37 @@ const Offerings = () => {
         </p>
       </div>
 
-      <div className="relative flex-grow w-full">
+      <div className="relative w-full grid grid-cols-1 grid-rows-1 flex-grow min-h-0 pb-12">
         {offerings.map((offering, i) => (
           <div 
             key={i} 
-            className="offering-card absolute inset-0 flex items-center justify-center"
+            className="offering-card col-start-1 row-start-1 flex items-center justify-center min-h-0 h-full"
             style={{ opacity: i === 0 ? 1 : 0, transform: i === 0 ? 'translateY(0)' : 'translateY(100px)' }}
           >
-            <div className="w-full bg-surface backdrop-blur-md border border-border rounded-3xl p-8 md:p-12 shadow-xl flex flex-col xl:flex-row gap-10 items-center">
+            <div className="w-full h-full max-h-full overflow-y-auto bg-surface backdrop-blur-md border border-border rounded-3xl p-[clamp(1.25rem,4vw,3rem)] shadow-xl flex flex-row gap-[clamp(1rem,4vw,2.5rem)] items-center" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               
               {/* Card Content */}
-              <div className="w-full xl:w-1/2 flex flex-col items-start justify-center">
-                <div className="mb-6 p-4 border border-border text-text-main rounded-2xl bg-white/5">
-                  {React.createElement(offering.icon, { size: 32, strokeWidth: 1.5 })}
+              <div className="w-1/2 flex flex-col items-start justify-center flex-shrink-0">
+                <div className="mb-[clamp(0.75rem,2vw,1.5rem)] p-[clamp(0.5rem,1vw,1rem)] border border-border text-text-main rounded-2xl bg-white/5 inline-flex">
+                  {React.createElement(offering.icon, { className: "w-[clamp(1.25rem,3vw,2rem)] h-[clamp(1.25rem,3vw,2rem)]", strokeWidth: 1.5 })}
                 </div>
-                <h3 className="text-3xl md:text-4xl font-medium mb-4 text-text-main leading-tight">{offering.title}</h3>
-                <p className="text-text-muted text-lg leading-relaxed mb-8">{offering.desc}</p>
+                <h3 className="text-[clamp(1.5rem,3vw+1rem,3rem)] font-medium mb-[clamp(0.5rem,1.5vw,1.25rem)] text-text-main leading-tight">{offering.title}</h3>
+                <p className="text-text-muted text-[clamp(0.875rem,1.5vw+0.5rem,1.25rem)] leading-relaxed mb-[clamp(1.25rem,3vw,2rem)]">{offering.desc}</p>
                 
-                <div className="space-y-4 w-full">
+                <div className="space-y-[clamp(0.5rem,1.5vw,1rem)] w-full">
                   {offering.extendedDesc.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#f97316] mt-2.5 flex-shrink-0"></div>
-                      <p className="text-text-muted text-base">{item}</p>
+                    <div key={idx} className="flex items-start gap-[clamp(0.5rem,1vw,0.75rem)]">
+                      <div className="w-[clamp(4px,0.5vw,6px)] h-[clamp(4px,0.5vw,6px)] rounded-full bg-[#f97316] mt-[clamp(0.35rem,1vw,0.6rem)] flex-shrink-0"></div>
+                      <p className="text-text-muted text-[clamp(0.8rem,1.2vw+0.4rem,1.125rem)] leading-snug">{item}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* SVG Component */}
-              <div className="w-full xl:w-1/2 p-6 md:p-8 flex items-center justify-center">
-                <div className="w-full aspect-[4/3] flex items-center justify-center">
-                  {React.createElement(offering.SvgComp)}
+              <div className="w-1/2 flex items-center justify-center flex-1 min-h-0 min-w-0">
+                <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-[480px] xl:max-w-full">
+                  {React.createElement(offering.SvgComp, { className: "w-full h-auto object-contain" })}
                 </div>
               </div>
 
